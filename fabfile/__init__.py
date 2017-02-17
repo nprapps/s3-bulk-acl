@@ -20,6 +20,7 @@ import render
 import text
 import utils
 import spreadsheet
+import s3
 
 if app_config.DEPLOY_TO_SERVERS:
     import servers

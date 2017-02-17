@@ -50,7 +50,7 @@ RELOAD_TRIGGER = False
 RELOAD_CHECK_INTERVAL = 60
 
 PRODUCTION_SERVERS = ['cron.nprapps.org']
-STAGING_SERVERS = ['cron-staging.nprapps.org']
+STAGING_SERVERS = ['52.90.129.68']
 
 # Should code be deployed to the web/cron servers?
 DEPLOY_TO_SERVERS = False
