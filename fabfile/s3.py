@@ -45,6 +45,9 @@ def bulk_acl(bucket_name, acl):
         obj_count = 0
         page_num = 0
         for page in bucket.objects.pages():
+            if page_num:
+                logger.info("--Accumulated Process time: %s seconds" % (
+                    time() - start_time))
             page_num += 1
             logger.info('Processing page %s of results' % page_num)
             for obj in page:
@@ -52,6 +55,7 @@ def bulk_acl(bucket_name, acl):
                 obj.Acl().put(ACL=acl)
                 if obj_count % 500 == 0:
                     logger.info('processed %s objects' % obj_count)
+                    logger.info('now processing: %s' % obj.key)
         logger.info('Finished processed %s objects' % obj_count)
         logger.info("--Total Process time: %s seconds" % (time() - start_time))
     except Exception, e:
