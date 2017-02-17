@@ -52,6 +52,7 @@ def bulk_acl(bucket_name, acl):
                 obj.Acl().put(ACL=acl)
                 if obj_count % 500 == 0:
                     logger.info('processed %s objects' % obj_count)
+        logger.info('Finished processed %s objects' % obj_count)
         logger.info("--Total Process time: %s seconds" % (time() - start_time))
     except Exception, e:
         logger.error('Exception occured while updating ACL %s' % str(e))
